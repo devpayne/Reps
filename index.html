@@ -1098,8 +1098,9 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
 
 </style>
 <style>
-/* ── READABILITY REFRESH (added) — bigger nav, prices & supporting text ──
-   Isolated block: easy to tweak these numbers or remove entirely. */
+/* ── READABILITY REFRESH (added) — easy to tune or remove ── */
+
+/* 1) Bigger nav, prices & supporting text */
 .nav-tab{ font-size:15px !important; letter-spacing:1px !important; }
 .nav-cta{ font-size:14px !important; }
 .hero-note,.cover-note,.ea-note,.enote,.final-cta-note,.form-note,
@@ -1107,6 +1108,22 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
   font-size:15px !important; line-height:1.55 !important;
 }
 .tier-price{ font-size:18px !important; }
+
+/* 2) Bigger text inside the boxes & 'how it works' cards */
+.story-text p,.who-p,.who-bullets li,.vp-feat-body,.card-text{
+  font-size:16px !important; line-height:1.65 !important;
+}
+.story-drill-card span{ font-size:12px !important; }
+.story-check-video,.story-check-go{ font-size:12px !important; }
+
+/* 3) Un-cram the big headlines so bold text stops bleeding:
+      ease the weight, open the line-height, relax the letter-spacing */
+.vh-h1,.who-h2,.final-h2,.vp-section-h2{
+  font-weight:800 !important;
+  line-height:1.04 !important;
+  letter-spacing:-0.5px !important;
+}
+.vh-line-two{ letter-spacing:-0.5px !important; }
 </style>
 </head>
 <body>
