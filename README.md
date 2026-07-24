@@ -10,8 +10,8 @@ and Netlify automatically publishes them whenever a change is saved here.
 | `index.html`          | Homepage                        |
 | `pricing.html`        | Pricing page                    |
 | `trainers.html`       | Trainers page                   |
-| `playersparents.html` | Players & parents page          |
-| `combinesignup.html`  | Combine signup page             |
+| `players-parents.html`| Players & parents page          |
+| `combine-signup.html` | Combine signup page             |
 | `support.html`        | Support page                    |
 | `privacy.html`        | Privacy policy                  |
 | `terms.html`          | Terms of service                |
