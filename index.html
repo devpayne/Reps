@@ -1127,7 +1127,12 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
 </style>
 <style>
 /* ── APP SHOWCASE (added) — alternating left/right rows with real app shots ── */
-.showcase-section{ max-width:1080px; margin:0 auto; padding:88px 24px; }
+.showcase-section{ padding:96px 24px;
+  border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06);
+  background:
+    radial-gradient(1200px 520px at 50% 0%, rgba(123,63,228,0.13), transparent 60%),
+    linear-gradient(180deg, #0c0b10 0%, #0a0a0d 100%); }
+.showcase-inner{ max-width:1080px; margin:0 auto; }
 .showcase-head{ margin:0 0 60px; max-width:640px; }
 .showcase-eyebrow{ font-family:'Barlow Condensed',sans-serif; font-size:14px; font-weight:700;
   letter-spacing:2px; text-transform:uppercase; color:var(--purple-light); }
@@ -1246,6 +1251,7 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
 
   <!-- ── SEE IT IN ACTION (real app screenshots) ── -->
   <section class="showcase-section">
+    <div class="showcase-inner">
     <div class="showcase-head fade-up">
       <span class="showcase-eyebrow">Inside the App</span>
       <h2 class="showcase-h2">Everything a player needs,<br><em>in one pocket.</em></h2>
@@ -1280,6 +1286,7 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
 
     <div class="showcase-cta fade-up">
       <a class="showcase-btn" href="https://apps.apple.com/us/app/reps-training/id6754618410" target="_blank" rel="noopener">Download Free on iOS →</a>
+    </div>
     </div>
   </section>
 
