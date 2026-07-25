@@ -796,22 +796,26 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
 }
 .who-card {
   padding: 80px 60px; display: flex; align-items: center; justify-content: center;
+  transition: background 0.4s ease;
 }
 .who-trainer { background: rgba(123,63,228,0.06); border-top: 1px solid rgba(123,63,228,0.15); border-bottom: 1px solid rgba(123,63,228,0.15); }
 .who-player { background: rgba(245,166,35,0.04); border-top: 1px solid rgba(245,166,35,0.15); border-bottom: 1px solid rgba(245,166,35,0.15); }
-.who-inner { max-width: 400px; }
+.who-trainer:hover { background: rgba(123,63,228,0.11); }
+.who-player:hover { background: rgba(245,166,35,0.08); }
+.who-inner { max-width: 420px; transition: transform 0.4s cubic-bezier(0.22,1,0.36,1); }
+.who-card:hover .who-inner { transform: translateY(-8px); }
 .who-tag {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 800;
+  font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800;
   letter-spacing: 3px; text-transform: uppercase;
-  color: rgba(255,255,255,0.35); display: block; margin-bottom: 16px;
+  color: rgba(255,255,255,0.4); display: block; margin-bottom: 18px;
 }
 .who-h2 {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(36px, 4vw, 52px); font-weight: 900;
+  font-size: clamp(40px, 4.6vw, 60px); font-weight: 900;
   line-height: 0.9; text-transform: uppercase; letter-spacing: -1px;
-  color: var(--white); margin-bottom: 18px;
+  color: var(--white); margin-bottom: 20px;
 }
-.who-p { font-size: 15px; color: var(--gray); line-height: 1.65; margin-bottom: 24px; }
+.who-p { font-size: clamp(17px, 1.4vw, 20px); color: var(--gray); line-height: 1.7; margin-bottom: 28px; }
 .who-bullets {
   list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px;
 }
@@ -820,12 +824,12 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
   color: rgba(255,255,255,0.7); letter-spacing: 0.5px;
 }
 .who-btn {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800;
+  font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800;
   text-transform: uppercase; letter-spacing: 1px;
-  padding: 13px 28px; border-radius: 100px; cursor: pointer;
-  border: none; transition: opacity 0.2s;
+  padding: 15px 32px; border-radius: 100px; cursor: pointer;
+  border: none; transition: opacity 0.2s, transform 0.2s;
 }
-.who-btn:hover { opacity: 0.8; }
+.who-btn:hover { opacity: 0.85; transform: translateY(-2px); }
 .who-btn-purple { background: var(--purple); color: var(--white); }
 .who-btn-gold { background: var(--gold); color: #090909; }
 
@@ -1133,38 +1137,46 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
     radial-gradient(1200px 520px at 50% 0%, rgba(123,63,228,0.13), transparent 60%),
     linear-gradient(180deg, #0c0b10 0%, #0a0a0d 100%); }
 .showcase-inner{ max-width:1080px; margin:0 auto; }
-.showcase-head{ margin:0 0 60px; max-width:640px; }
-.showcase-eyebrow{ font-family:'Barlow Condensed',sans-serif; font-size:14px; font-weight:700;
+.showcase-eyebrow-row{ margin:0 0 48px; }
+.showcase-eyebrow{ font-family:'Barlow Condensed',sans-serif; font-size:15px; font-weight:700;
   letter-spacing:2px; text-transform:uppercase; color:var(--purple-light); }
-.showcase-h2{ font-family:'Barlow Condensed',sans-serif; font-size:clamp(32px,4.5vw,52px);
-  font-weight:800; line-height:1.04; text-transform:uppercase; letter-spacing:-0.5px;
-  color:var(--white); margin:10px 0 0; }
-.showcase-h2 em{ color:var(--purple-light); font-style:normal; }
-.showcase-row{ display:flex; align-items:center; gap:60px; margin-bottom:76px; }
+.showcase-row{ display:flex; align-items:center; gap:64px; margin-bottom:84px; }
 .showcase-row.reverse{ flex-direction:row-reverse; }
-.showcase-media{ flex:0 0 300px; display:flex; justify-content:center; }
+.showcase-media{ flex:0 0 320px; display:flex; justify-content:center; }
 .showcase-text{ flex:1; }
-.shot{ width:290px; border-radius:34px; overflow:hidden;
+.shot{ width:300px; border-radius:34px; overflow:hidden;
   border:1px solid rgba(255,255,255,0.10);
-  box-shadow:0 30px 70px rgba(0,0,0,0.6), 0 0 60px rgba(123,63,228,0.16); }
+  box-shadow:0 30px 70px rgba(0,0,0,0.6), 0 0 60px rgba(123,63,228,0.16);
+  animation:shotFloat 6s ease-in-out infinite;
+  transition:box-shadow .4s ease, transform .4s ease; }
+.showcase-row:nth-of-type(2) .shot{ animation-delay:-2s; }
+.showcase-row:nth-of-type(3) .shot{ animation-delay:-4s; }
+.shot:hover{ transform:translateY(-6px) scale(1.02);
+  box-shadow:0 40px 90px rgba(0,0,0,0.65), 0 0 90px rgba(123,63,228,0.35); }
 .shot img{ display:block; width:100%; height:auto; }
-.showcase-num{ font-family:'Barlow Condensed',sans-serif; font-size:16px; font-weight:800;
+@keyframes shotFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-14px); } }
+.showcase-num{ font-family:'Barlow Condensed',sans-serif; font-size:20px; font-weight:800;
   letter-spacing:2px; color:var(--gold); }
-.showcase-text h3{ font-family:'Barlow Condensed',sans-serif; font-size:clamp(26px,3vw,38px);
+.showcase-text h3{ font-family:'Barlow Condensed',sans-serif; font-size:clamp(30px,3.6vw,46px);
   font-weight:800; line-height:1.06; text-transform:uppercase; letter-spacing:-0.5px;
-  color:var(--white); margin:8px 0 14px; }
-.showcase-text p{ font-size:17px; line-height:1.65; color:var(--gray); max-width:460px; }
+  color:var(--white); margin:10px 0 16px; }
+.showcase-text p{ font-size:clamp(18px,1.5vw,21px); line-height:1.7; color:var(--gray); max-width:500px; }
 .showcase-cta{ text-align:center; margin-top:4px; }
 .showcase-btn{ display:inline-block; background:var(--purple); color:#fff;
-  font-family:'Barlow Condensed',sans-serif; font-size:18px; font-weight:800;
-  text-transform:uppercase; letter-spacing:1px; padding:15px 40px; border-radius:100px;
-  text-decoration:none; transition:opacity .2s, transform .2s; }
-.showcase-btn:hover{ opacity:.9; transform:translateY(-1px); }
+  font-family:'Barlow Condensed',sans-serif; font-size:19px; font-weight:800;
+  text-transform:uppercase; letter-spacing:1px; padding:16px 44px; border-radius:100px;
+  text-decoration:none; transition:opacity .2s, transform .2s, box-shadow .2s; }
+.showcase-btn:hover{ opacity:.95; transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(123,63,228,0.4); }
 @media (max-width:760px){
   .showcase-section{ padding:64px 20px; }
-  .showcase-row, .showcase-row.reverse{ flex-direction:column; text-align:center; gap:26px; margin-bottom:56px; }
+  /* column-reverse => the numbered descriptor sits ABOVE the app screenshot on mobile */
+  .showcase-row, .showcase-row.reverse{ flex-direction:column-reverse; text-align:center; gap:26px; margin-bottom:60px; }
   .showcase-media{ flex-basis:auto; }
   .showcase-text p{ margin:0 auto; }
+}
+@media (prefers-reduced-motion:reduce){
+  .shot{ animation:none; }
 }
 </style>
 </head>
@@ -1252,9 +1264,8 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
   <!-- ── SEE IT IN ACTION (real app screenshots) ── -->
   <section class="showcase-section">
     <div class="showcase-inner">
-    <div class="showcase-head fade-up">
+    <div class="showcase-eyebrow-row fade-up">
       <span class="showcase-eyebrow">Inside the App</span>
-      <h2 class="showcase-h2">Everything a player needs,<br><em>in one pocket.</em></h2>
     </div>
 
     <div class="showcase-row fade-up">
@@ -1298,12 +1309,6 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
         <span class="who-tag">Trainers</span>
         <h2 class="who-h2">Stop chasing<br>payments.</h2>
         <p class="who-p">Scheduling, payments, discovery, and advertising — all handled. You just coach.</p>
-        <ul class="who-bullets">
-          <li>💳 Payments auto-collected</li>
-          <li>📅 Calendar runs itself</li>
-          <li>🔍 New players find you</li>
-          <li>📣 Reps buys the ads</li>
-        </ul>
         <button class="who-btn who-btn-purple" onclick="showPage('trainers')">Trainer Details →</button>
       </div>
     </div>
@@ -1312,12 +1317,6 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
         <span class="who-tag">Players &amp; Parents</span>
         <h2 class="who-h2">Extend one session<br>to all week.</h2>
         <p class="who-p">Your trainer's plan keeps your kid working — and you can see every drill, every day.</p>
-        <ul class="who-bullets">
-          <li>📋 Custom plans delivered</li>
-          <li>🎥 Video feedback loop</li>
-          <li>📊 Progress parents can see</li>
-          <li>🔥 Streaks &amp; motivation</li>
-        </ul>
         <button class="who-btn who-btn-gold" onclick="showPage('parents')">Player &amp; Parent Info →</button>
       </div>
     </div>
