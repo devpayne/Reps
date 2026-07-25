@@ -1157,7 +1157,8 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
 .showcase-btn:hover{ opacity:.9; transform:translateY(-1px); }
 @media (max-width:760px){
   .showcase-section{ padding:64px 20px; }
-  .showcase-row, .showcase-row.reverse{ flex-direction:column; text-align:center; gap:26px; margin-bottom:56px; }
+  /* column-reverse => the numbered descriptor sits ABOVE the app screenshot on mobile */
+  .showcase-row, .showcase-row.reverse{ flex-direction:column-reverse; text-align:center; gap:26px; margin-bottom:56px; }
   .showcase-media{ flex-basis:auto; }
   .showcase-text p{ margin:0 auto; }
 }
