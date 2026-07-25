@@ -1090,7 +1090,9 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
 .vp-fee-live .vp-fee-num { color: var(--gold); }
 .vp-fee-sub { font-size: 13px; color: var(--gray); }
 @media (max-width: 900px) {
-  .vp-split, .vp-split.vp-split-rev { grid-template-columns: 1fr; direction: ltr; gap: 32px; }
+  /* Stack to one column with the text/description ABOVE the photo in both sections */
+  .vp-split { display: flex; flex-direction: column-reverse; direction: ltr; gap: 32px; }
+  .vp-split.vp-split-rev { flex-direction: column; }
   .vp-feature-grid { grid-template-columns: 1fr; }
   .vp-stat-band { grid-template-columns: 1fr; }
   .vp-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
