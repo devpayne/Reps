@@ -1158,7 +1158,8 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
 .showcase-btn:hover{ opacity:.9; transform:translateY(-1px); }
 @media (max-width:760px){
   .showcase-section{ padding:64px 20px; }
-  .showcase-row, .showcase-row.reverse{ flex-direction:column; text-align:center; gap:26px; margin-bottom:56px; }
+  /* column-reverse => the numbered descriptor sits ABOVE the app screenshot on mobile */
+  .showcase-row, .showcase-row.reverse{ flex-direction:column-reverse; text-align:center; gap:26px; margin-bottom:56px; }
   .showcase-media{ flex-basis:auto; }
   .showcase-text p{ margin:0 auto; }
 }
@@ -1204,7 +1205,6 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
   <section class="showcase-section">
     <div class="showcase-head fade-up">
       <span class="showcase-eyebrow">Inside the App</span>
-      <h2 class="showcase-h2">Everything your player needs,<br><em>in one pocket.</em></h2>
     </div>
 
     <div class="showcase-row fade-up">
