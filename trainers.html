@@ -1116,6 +1116,43 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
 }
 .vh-line-two{ letter-spacing:-0.5px !important; }
 </style>
+<style>
+/* ── APP SHOWCASE (added) ── */
+.showcase-section{ max-width:1080px; margin:0 auto; padding:88px 24px; }
+.showcase-head{ margin:0 0 60px; max-width:640px; }
+.showcase-eyebrow{ font-family:'Barlow Condensed',sans-serif; font-size:14px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase; color:var(--purple-light); }
+.showcase-h2{ font-family:'Barlow Condensed',sans-serif; font-size:clamp(32px,4.5vw,52px);
+  font-weight:800; line-height:1.04; text-transform:uppercase; letter-spacing:-0.5px;
+  color:var(--white); margin:10px 0 0; }
+.showcase-h2 em{ color:var(--purple-light); font-style:normal; }
+.showcase-row{ display:flex; align-items:center; gap:60px; margin-bottom:76px; }
+.showcase-row.reverse{ flex-direction:row-reverse; }
+.showcase-media{ flex:0 0 300px; display:flex; justify-content:center; }
+.showcase-text{ flex:1; }
+.shot{ width:290px; border-radius:34px; overflow:hidden;
+  border:1px solid rgba(255,255,255,0.10);
+  box-shadow:0 30px 70px rgba(0,0,0,0.6), 0 0 60px rgba(123,63,228,0.16); }
+.shot img{ display:block; width:100%; height:auto; }
+.showcase-num{ font-family:'Barlow Condensed',sans-serif; font-size:16px; font-weight:800;
+  letter-spacing:2px; color:var(--gold); }
+.showcase-text h3{ font-family:'Barlow Condensed',sans-serif; font-size:clamp(26px,3vw,38px);
+  font-weight:800; line-height:1.06; text-transform:uppercase; letter-spacing:-0.5px;
+  color:var(--white); margin:8px 0 14px; }
+.showcase-text p{ font-size:17px; line-height:1.65; color:var(--gray); max-width:460px; }
+.showcase-cta{ text-align:center; margin-top:4px; }
+.showcase-btn{ display:inline-block; background:var(--purple); color:#fff;
+  font-family:'Barlow Condensed',sans-serif; font-size:18px; font-weight:800;
+  text-transform:uppercase; letter-spacing:1px; padding:15px 40px; border-radius:100px;
+  text-decoration:none; transition:opacity .2s, transform .2s; }
+.showcase-btn:hover{ opacity:.9; transform:translateY(-1px); }
+@media (max-width:760px){
+  .showcase-section{ padding:64px 20px; }
+  .showcase-row, .showcase-row.reverse{ flex-direction:column; text-align:center; gap:26px; margin-bottom:56px; }
+  .showcase-media{ flex-basis:auto; }
+  .showcase-text p{ margin:0 auto; }
+}
+</style>
 </head>
 <body>
 
@@ -1153,6 +1190,46 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
       </div>
     </div>
   </div>
+
+  <!-- ── INSIDE THE APP (real screenshots) ── -->
+  <section class="showcase-section">
+    <div class="showcase-head fade-up">
+      <span class="showcase-eyebrow">Inside the App</span>
+      <h2 class="showcase-h2">Everything you need to<br><em>coach, not chase.</em></h2>
+    </div>
+
+    <div class="showcase-row fade-up">
+      <div class="showcase-media"><div class="shot"><img src="assets/app/app-trainer-dashboard.jpg" alt="Reps trainer dashboard" loading="lazy"></div></div>
+      <div class="showcase-text">
+        <span class="showcase-num">01</span>
+        <h3>Your whole business, one screen.</h3>
+        <p>Players, earnings, and sessions to review — your entire operation at a glance the moment you open the app.</p>
+      </div>
+    </div>
+
+    <div class="showcase-row reverse fade-up">
+      <div class="showcase-media"><div class="shot"><img src="assets/app/app-playbook.jpg" alt="Reps playbook screen" loading="lazy"></div></div>
+      <div class="showcase-text">
+        <span class="showcase-num">02</span>
+        <h3>Build once. Assign to everyone.</h3>
+        <p>Create a plan in the Playbook and push it to any player or group. No more rewriting the same workout ten times.</p>
+      </div>
+    </div>
+
+    <div class="showcase-row fade-up">
+      <div class="showcase-media"><div class="shot"><img src="assets/app/app-earnings.jpg" alt="Reps earnings and payouts screen" loading="lazy"></div></div>
+      <div class="showcase-text">
+        <span class="showcase-num">03</span>
+        <h3>Get paid without asking.</h3>
+        <p>Sessions are billed and payouts land automatically — no Venmo requests, no awkward reminders, no chasing.</p>
+      </div>
+    </div>
+
+    <div class="showcase-cta fade-up">
+      <a class="showcase-btn" href="https://apps.apple.com/us/app/reps-training/id6754618410" target="_blank" rel="noopener">Start Coaching on Reps →</a>
+    </div>
+  </section>
+
   <div style="padding:0 24px 48px;max-width:1100px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:40px;">
       <span class="vp-section-label">Without Reps</span>
