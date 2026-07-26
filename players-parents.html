@@ -910,6 +910,17 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
 }
 .vp-purple-glow { background: radial-gradient(ellipse, rgba(123,63,228,0.3) 0%, transparent 65%); }
 .vp-gold-glow   { background: radial-gradient(ellipse, rgba(245,166,35,0.22) 0%, transparent 65%); }
+.vp-hero-video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center 30%; z-index: 0; pointer-events: none;
+  filter: saturate(0.82) brightness(0.5);
+}
+.vp-hero-scrim {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(9,9,9,0.82) 0%, rgba(9,9,9,0.55) 42%, rgba(9,9,9,0.92) 100%),
+    radial-gradient(ellipse 62% 55% at 50% 42%, rgba(123,63,228,0.22) 0%, transparent 66%);
+}
 .vp-hero-content { position: relative; z-index: 1; max-width: 800px; }
 .vp-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
@@ -1189,6 +1200,11 @@ body{font-family:'Barlow',sans-serif;background:#090909;color:#FFF;overflow-x:hi
 
 <div id="page-parents" class="page active">
   <div class="vp-hero">
+    <video class="vp-hero-video" data-autoplay muted loop playsinline preload="none"
+           poster="assets/video/medal-poster.jpg">
+      <source src="assets/video/medal.mp4" type="video/mp4">
+    </video>
+    <div class="vp-hero-scrim"></div>
     <div class="vp-hero-glow vp-purple-glow"></div>
     <div class="court-lines"></div>
     <div class="vp-hero-content">
@@ -1307,6 +1323,22 @@ function observePage(pageId) {
   });
 }
 observePage('parents');
+
+// Lazy-play background videos when in view; pause off-screen; honor reduced motion
+(function(){
+  var vids = document.querySelectorAll('video[data-autoplay]');
+  if (!vids.length) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var v = e.target;
+      if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+      else { v.pause(); }
+    });
+  }, { threshold: 0.15 });
+  vids.forEach(function(v){ io.observe(v); });
+})();
 </script>
 
 </body>
